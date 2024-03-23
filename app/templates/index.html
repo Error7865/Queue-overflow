@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    {% extends "base.html"%}
+    {% import "_macros.html" as macros %}
+    {% block content%}
+    <h1 align="center">Hello,{% if current_user.is_authenticated %} {{ current_user.username }}!
+        {% else %}
+            Stranger!
+        {% endif %}
+    </h1>
+
+    <div>
+        {% if current_user.can(Permission.WRITE) %}
+            <form action="{{url_for('main.index')}}" method="post">
+                {{form.csrf_token}}
+                <h3 align="center">{{form.body}}</h3>
+                <h3 align="center">{{form.submit}} </h3>
+            </form>
+        
+                {{ super() }}
+                {{ pagedown.include_pagedown() }}
+            
+            <div class="pagination">
+                {{ macros.pagination_widget(pagination, '.index') }}
+            </div>
+        {% endif %}
+        </div>
+        <div class="type" align="center">
+            <h4 align="center"><a href="{{url_for('.show_all')}}">All</a></h4>
+            <h4 align="center"><a href="{{url_for('.show_followed')}}">Followed</a></h4>
+        </div>
+        {% include "_posts.html"%}
+        
+    {% endblock%}
+</body>
+</html>

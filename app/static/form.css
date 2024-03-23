@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+fieldset{
+    border-radius: 10px;
+}
+legend{
+    color: magenta;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+label{
+    font-size: 1.5em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+h3{
+    text-align: center;
+    color: rgb(255, 0, 170);
+}
+
+input{
+    height: 2em;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+input:hover{
+    color: white;
+    background-color: magenta;
+}
+
+h4{
+    animation: flashed 5s linear  1;
+}
+
+@keyframes flashed {
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.7;
+        color: orangered;
+        font-weight: bold;
+        font-size: 2em;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+h5>a{
+    text-decoration: none;
+}
+h5>a:hover{
+    color: red;
+    
+}

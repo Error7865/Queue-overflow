@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{url_for('static', filename='index.css')}}">
+    <title>Base</title>
+</head>
+<body>
+    {% for messa in get_flashed_messages()%}
+        <h3>{{messa}}</h3>
+    {% endfor %}
+    {{moment.include_moment()}}
+    <ul class="nav navbar-nav navbar-right">
+        {% if current_user.is_authenticated %}
+        <li><a href="{{ url_for('auth.logout') }}">Log Out</a></li>
+        {% else %}  
+        <li><a href="{{ url_for('auth.login') }}" id="login">Log In</a></li>
+        <li><a href="{{ url_for('auth.register') }}">New User?</a></li>
+        {% endif %}
+        {% if current_user.is_authenticated %}
+        <li>
+            <a href="{{ url_for('main.user', username=current_user.username) }}" name="Profile">
+                Profile
+            </a>
+        </li>
+        {% endif %}
+        {% if current_user.can(Permission.MODERATE) %}
+            <li><a href="{{ url_for('main.moderate') }}">Moderate Comments</a></li>
+        {% endif %}
+    </ul>
+
+        {%block content%}
+        {%endblock%}
+</body>
+</html>

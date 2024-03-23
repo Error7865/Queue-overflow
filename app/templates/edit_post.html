@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{#% import "bootstrap/wtf.html" as wtf %#}
+{% block title %}Flasky - Edit Post{% endblock %}
+{% block content %}
+<div class="page-header">
+    <h1>Edit Post</h1>
+</div>
+<div>
+    <form action="{{url_for('main.edit', id=id)}}" method="post">
+        {{form.csrf_token}}
+        <h3 align="center">{{form.body()}}</h3>
+        <h3 align="center">{{form.submit()}}</h3>
+    </form>
+</div>
+{#% endblock %#}
+{#% block content %#}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}

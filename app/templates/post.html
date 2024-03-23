@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% block title %}Flasky - Post{% endblock %}
+{% block content %}
+    {% include '_posts.html' %}
+    <form action="{{url_for('.post', id=id)}}" method="post" enctype="multipart/form-data">
+        {{form.csrf_token}}
+        <h3 align="center">{{form.body()}}</h3>
+        <h3 align="center">{{form.submit()}}</h3>
+    </form>
+    <ul class="comments">
+        {% for comment in comments %}
+            <li class="comment">
+                <img src="{{comment.author.gravatar(size=40)}}" alt="user_pic" class="commenter_pic">
+                {%if comment.disabled%}
+                    <p>This comment <span class="red">disabled</span> by moderator</p>
+                {% else %}
+                    {% if comment.body_html %}
+                        <p class="comment_body">{{comment.body_html | safe }}</p>
+                    {% else %}
+                        <p class="comment_body">{{comment.body}}</p>
+                    {% endif%}
+                {% endif %}
+            </li>
+            <hr>
+        {% endfor%}
+    </ul>
+
+{% endblock %}

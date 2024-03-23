@@ -1,0 +1,66 @@
+@charset "utf-8";
+
+/* main style  */
+.user_profile{
+    display: flex;    
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.profile_pic{
+    width: 7%;
+    height: 7%;
+    margin: 1em;
+    border: 5px solid magenta;
+    border-radius: 50%;
+}
+
+.name_container{
+    text-align: center;
+}
+
+.user_name{
+    padding: 0.5em;
+    color: olive;
+    font-size: xx-large;
+
+}
+
+ul{
+    list-style-type: none;
+}
+
+.follower_pic{
+    width: 5em;
+    height: 5em;
+    margin: 1em;
+    border: 3px solid rgba(174, 0, 255, 0.842);
+    border-radius: 50%;
+}
+
+.follower_name{
+    /* padding: 0.5em; */
+    position: relative;
+    left: 3.5em;
+    bottom: 3.5em;
+    color: black;
+    font-size: xx-large;
+    padding-bottom: 1em;    
+
+}
+
+.follower_ul li{
+    height: 7em;
+    border-bottom: 2px solid grey;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.comment_body{
+    border: 2px solid salmon;
+}
+
+/* mani end  */

@@ -1,0 +1,64 @@
+@charset "utf-8";
+
+
+.post-author{
+    position: relative;
+    bottom: 3em;
+    left: 3em;
+}
+
+.post-author>a{
+    font-weight: bold;
+    font-size: 1.5em;
+    color: rgb(65, 65, 216);
+    text-decoration: none;
+}
+
+.img-rounded{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #acff27;
+}
+
+.macros{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+
+.macros li:hover{
+    background-color: royalblue;
+    color: wheat;
+}
+
+.macros li a{
+    margin: 0.5em;
+    width: 100px;
+    height: 100px;
+    text-decoration: none;
+    border-radius: 5px;
+    /* border: 2px solid royalblue; */
+    text-align: center;
+    padding-top: 1em;
+    box-shadow: 2px 2px grey;
+}
+.macros li a:hover{
+    text-decoration: none;
+    color: white;
+    background-color: royalblue;
+}
+
+.posts{
+    list-style-type: none;
+}
+
+span{
+    margin: 1em;
+}
+
+link-----
+exit()
+https://www.youtube.com/watch?v=YmcLl8jO7_U&list=RDGMEM2j3yRsqu_nuzRLnHd2bMVAVMYmcLl8jO7_U
+https://www.facebook.com/reel/689354443247320

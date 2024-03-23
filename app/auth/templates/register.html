@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='form.css')}}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    {% for messa in get_flashed_messages() %}
+    <h3>{{messa}}</h3>
+    {% endfor %}
+<fieldset>
+    <legend>Register</legend>
+    <form action="/auth/register" method="post" enctype="multipart/form-data">
+        {{fo.csrf_token}}
+        <h3>
+            {{fo.email.label}} <br> {{fo.email()}}
+        </h3>
+        <h3>    {{fo.username.label}} <br> {{fo.username()}}</h3>
+        <h3>{{fo.password.label}} <br> {{fo.password()}}</h3>
+        <h3>{{fo.c_password.label}} <br> {{fo.c_password()}}</h3>
+        <h3>{{fo.submit()}}</h3>
+    </form>
+</fieldset>
+    
+</body>
+</html>

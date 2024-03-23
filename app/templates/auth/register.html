@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    {%block content%}
+        {%for messa in get_flashed_messages()%}
+            <h3>{{messa}}</h3>
+        {%endfor%}
+    <fieldset>
+        <legend>Registration Form</legend>
+        <form action="{{url_for('auth.register')}}" method="post">
+            {{form.csrf_token}}
+            <h3 align="center">{{form.email.label}}&ThinSpace;{{form.email()}}</h3>
+            <h3 align="center">{{form.username.label}}&ThinSpace;{{form.username()}}</h3>
+            <h3 align="center">{{form.password.label}}&ThinSpace;{{form.password()}}</h3>
+            <h3 align="center">{{form.password2.label}}&ThinSpace;{{form.password2()}}</h3>
+            <h3 align="center">{{form.submit()}}</h3>
+
+        </form>
+    </fieldset>
+    {%endblock%}
+
+</body>
+</html>

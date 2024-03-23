@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends "base.html" %}
+    {% import "bootstrap/wtf.html" as wtf %}
+    {% block title %}Flasky - Login{% endblock %}
+    {% block content %}
+        <div class="page-header">
+            <h1>Login</h1>
+            <form action="{{url_for('auth.login')}}" method="post">
+                {{form.csrf_token}}
+                <h3 align="center">{{form.email.label}} &ThinSpace;{{form.email()}}</h3>
+                <h3 align="center">{{form.password.label}}&ThinSpace;{{form.password()}}</h3>
+                <h3 align="center">{{form.remember_me()}} &ThinSpace;{{form.remember_me.label}}</h3>
+                <h3 align="center">{{form.submit}}</h3>
+            </form>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <p>
+            New user?
+            <a href="{{ url_for('auth.register') }}">
+            Click here to register
+            </a>
+            </p>
+    {% endblock %}
+</body>
+</html>
